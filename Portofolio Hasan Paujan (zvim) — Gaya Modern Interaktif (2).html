@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PORTFOLIO. — Hasan Paujan (zvim)</title>
+  <meta name="description" content="Portofolio pribadi Hasan Paujan (zvim), siswa kelas X Teknik Jaringan Komputer dan Telekomunikasi di SMKN 11 Garut." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'blob': 'blob 7s infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            blob: {
+              '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(10px, -15px) scale(1.03)' },
+              '66%': { transform: 'translate(-10px, 10px) scale(0.97)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Smooth Transitions */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d4d4d8;
+      border-radius: 9999px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+    }
+
+    /* Blinking Typing Cursor */
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 0.9s infinite;
+      margin-left: 2px;
+      font-weight: 400;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Preloader Progress Bar */
+    @keyframes loadProgress {
+      0% { width: 0%; }
+      50% { width: 68%; }
+      100% { width: 100%; }
+    }
+    .animate-progress {
+      animation: loadProgress 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Reveal on Scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Pill Nav Shadow */
+    .pill-nav-shadow {
+      box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    }
+    .dark .pill-nav-shadow {
+      box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.45), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Typing Dots for AI Assistant */
+    .dot-flashing {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .dot-flashing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #71717a;
+      animation: dotPulse 1.2s infinite ease-in-out;
+    }
+    .dot-flashing span:nth-child(2) { animation-delay: 0.2s; }
+    .dot-flashing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#111827] dark:bg-[#09090B] dark:text-[#FAFAFA] antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900 transition-colors duration-300 overflow-x-hidden">
+
+  <!-- ==========================================================================
+       0. PRELOADER SCREEN (Seperti di awal video)
+       ========================================================================== -->
+  <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#FAFAFA] dark:bg-[#09090B] transition-opacity duration-500">
+    <div class="text-center px-4">
+      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-3">
+        zvim
+      </h2>
+      <p class="font-mono text-[11px] sm:text-xs tracking-[0.28em] uppercase text-zinc-400 dark:text-zinc-500 mb-6">
+        PORTFOLIO LOADING
+      </p>
+      <div class="w-48 sm:w-56 h-[2px] bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden mx-auto">
+        <div class="h-full bg-zinc-900 dark:bg-white animate-progress rounded-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       1. FLOATING PILL NAVBAR
+       ========================================================================== -->
+  <header class="fixed top-4 sm:top-6 inset-x-0 z-40 px-4">
+    <nav class="max-w-4xl mx-auto bg-white/85 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/80 dark:border-zinc-800 rounded-full px-5 sm:px-7 py-3 flex items-center justify-between pill-nav-shadow transition-all">
+      <!-- Brand -->
+      <a href="#home" class="text-sm sm:text-base font-extrabold tracking-tight text-zinc-900 dark:text-white">
+        PORTFOLIO<span class="text-zinc-400">.</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+        <li><a href="#home" class="nav-item text-zinc-900 dark:text-white font-semibold transition-colors">Home</a></li>
+        <li><a href="#about" class="nav-item hover:text-zinc-900 dark:hover:text-white transition-colors">About</a></li>
+        <li><a href="#education" class="nav-item hover:text-zinc-900 dark:hover:text-white transition-colors">Journey</a></li>
+        <li><a href="#skills" class="nav-item hover:text-zinc-900 dark:hover:text-white transition-colors">Skills</a></li>
+        <li><a href="#projects" class="nav-item hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a></li>
+        <li><a href="#contact" class="nav-item hover:text-zinc-900 dark:hover:text-white transition-colors">Contacts</a></li>
+      </ul>
+
+      <!-- Actions: Theme Toggle & Mobile Menu -->
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="Ganti Tema" class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+          <!-- Sun Icon -->
+          <svg id="icon-sun" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <!-- Moon Icon -->
+          <svg id="icon-moon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <button id="mobile-menu-btn" type="button" aria-label="Buka Menu" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="8" x2="20" y2="8"></line>
+            <line x1="4" y1="16" x2="20" y2="16"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Pill -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-4xl mx-auto mt-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-3xl p-4 pill-nav-shadow">
+      <ul class="flex flex-col gap-1 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+        <li><a href="#home" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">Home</a></li>
+        <li><a href="#about" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">About</a></li>
+        <li><a href="#education" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">Journey</a></li>
+        <li><a href="#skills" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">Skills</a></li>
+        <li><a href="#projects" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">Projects</a></li>
+        <li><a href="#contact" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">Contacts</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         2. HERO SECTION (Teks Kiri, Foto Lingkaran Bulat & Floating Badges Kanan)
+         ========================================================================== -->
+    <section id="home" class="pt-32 sm:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-6 space-y-6 reveal">
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
+              Hi, I'm <span class="text-zinc-500 dark:text-zinc-400">Hasan</span>
+            </h1>
+            <div class="h-8 sm:h-9 flex items-center">
+              <p id="typing-role" class="text-lg sm:text-2xl font-semibold text-zinc-700 dark:text-zinc-300 typing-cursor"></p>
+            </div>
+          </div>
+
+          <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
+            Halo! Saya siswa kelas X TJKT di SMKN 11 Garut yang suka mengeksplorasi teknologi, sistem komputer, jaringan, dan pemrograman. Rasa ingin tahu selalu mendorong saya untuk mencoba gagasan baru.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <a href="#projects" class="inline-flex items-center gap-2.5 bg-[#18181B] dark:bg-white text-white dark:text-zinc-900 text-sm font-semibold px-6 py-3.5 rounded-xl hover:opacity-90 active:scale-[0.98] transition-all shadow-sm">
+              <span>Explore Work</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="inline-flex items-center gap-2.5 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 text-sm font-semibold px-6 py-3.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 active:scale-[0.98] transition-all">
+              <span>Tentang Saya</span>
+              <svg class="w-4 h-4 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Connect Social Icons -->
+          <div class="pt-4">
+            <p class="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-3">
+              CONNECT
+            </p>
+            <div class="flex items-center gap-3">
+              <a href="https://www.instagram.com/its.san23/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="https://www.tiktok.com/@itmysans_" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+              </a>
+              <a href="mailto:hasan.jpn23@gmail.com" aria-label="Email" class="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Circular Photo Frame + 3 Floating Badges -->
+        <div class="lg:col-span-6 flex justify-center lg:justify-end reveal">
+          <div class="relative w-[300px] h-[300px] sm:w-[390px] sm:h-[390px] aspect-square shrink-0">
+            <!-- Outer Soft Glow Ring -->
+            <div class="absolute -inset-4 rounded-full bg-zinc-200/70 dark:bg-zinc-800/40 blur-md"></div>
+
+            <!-- Main Circular Photo Slot (Foto otomatis muncul jika file bernama "foto-hero.jpg" berada di folder yang sama) -->
+            <div class="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-400 dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 border-8 border-white dark:border-zinc-900 shadow-xl flex flex-col items-center justify-center">
+              <img
+                id="hero-photo"
+                src="foto-hero.jpg"
+                alt="Hasan Paujan"
+                class="w-full h-full object-cover object-center"
+                onerror="this.style.display='none'; document.getElementById('hero-photo-fallback').classList.remove('hidden');"
+              />
+              <!-- Fallback otomatis jika file foto-hero.jpg belum ada -->
+              <div id="hero-photo-fallback" class="hidden w-full h-full flex flex-col items-center justify-center">
+                <svg class="w-36 h-36 sm:w-44 sm:h-44 text-zinc-500/50 dark:text-zinc-600/60 translate-y-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+                <span class="absolute bottom-7 px-3 py-1 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm text-[11px] font-mono text-zinc-600 dark:text-zinc-300 border border-zinc-200/60 dark:border-zinc-700/60">
+                  Simpan: foto-hero.jpg
+                </span>
+              </div>
+            </div>
+
+            <!-- Floating Badge 1 (Top Left) -->
+            <div class="absolute -left-3 sm:-left-10 top-12 sm:top-16 z-10 bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl px-3.5 py-2.5 shadow-lg flex items-center gap-3 animate-blob">
+              <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="text-xs sm:text-[13px] font-semibold text-zinc-800 dark:text-zinc-100 whitespace-nowrap">
+                TJKT Student · SMKN 11 Garut
+              </span>
+            </div>
+
+            <!-- Floating Badge 2 (Middle Left) -->
+            <div class="absolute -left-6 sm:-left-14 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl px-3.5 py-2.5 shadow-lg flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <span class="text-xs sm:text-[13px] font-semibold text-zinc-800 dark:text-zinc-100 whitespace-nowrap">
+                HTML, CSS & Python
+              </span>
+            </div>
+
+            <!-- Floating Badge 3 (Bottom Left) -->
+            <div class="absolute -left-2 sm:-left-8 bottom-10 sm:bottom-14 z-10 bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl px-3.5 py-2.5 shadow-lg flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <span class="text-xs sm:text-[13px] font-semibold text-zinc-800 dark:text-zinc-100 whitespace-nowrap">
+                OS, Networking & Security
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. ABOUT ME SECTION (Foto Portrait Kiri + Who Am I, My Approach & Personal Details Kanan)
+         ========================================================================== -->
+    <section id="about" class="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="text-center mb-14 sm:mb-16 reveal">
+        <p class="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 dark:text-zinc-500 mb-2">
+          DISCOVER
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          About Me
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <!-- Left Portrait Card (Foto otomatis muncul jika file bernama "foto-about.jpg" berada di folder yang sama) -->
+        <div class="lg:col-span-5 reveal">
+          <div class="relative aspect-[4/5] w-full max-w-md mx-auto rounded-3xl overflow-hidden bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-400 dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-md flex flex-col items-center justify-center">
+            <img
+              id="about-photo"
+              src="foto-about.jpg"
+              alt="Hasan Paujan"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              onerror="this.style.display='none'; document.getElementById('about-photo-fallback').classList.remove('hidden');"
+            />
+            <!-- Fallback otomatis jika file foto-about.jpg belum ada -->
+            <div id="about-photo-fallback" class="hidden w-full h-full flex flex-col items-center justify-center">
+              <svg class="w-44 h-44 text-zinc-500/45 dark:text-zinc-600/50 translate-y-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-5 inset-x-5 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md rounded-2xl p-3.5 border border-zinc-200/70 dark:border-zinc-700/70 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Hasan Paujan</p>
+                <p class="font-mono text-[11px] text-zinc-500">@zvim · Garut</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] text-zinc-600 dark:text-zinc-300">
+                SMKN 11 Garut
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Details -->
+        <div class="lg:col-span-7 space-y-10 reveal">
+          <!-- Two Columns: Who Am I & My Approach -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div class="space-y-3">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Who Am I</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Saya adalah siswa kelas X TJKT di SMKN 11 Garut yang memiliki ketertarikan besar pada komputer, sistem operasi, jaringan komputer, pemrograman, dan keamanan siber.
+              </p>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white">My Approach</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Selain teknologi, saya juga tertarik pada fisika dan fenomena ilmiah. Bagi saya, belajar adalah proses berkelanjutan untuk memahami cara kerja sesuatu, menjelajah, dan berkreasi.
+              </p>
+            </div>
+          </div>
+
+          <!-- Personal Details Block with Left Vertical Line -->
+          <div class="pt-2">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="w-[2px] h-5 bg-zinc-900 dark:bg-white rounded-full"></span>
+              <h3 class="text-base font-bold text-zinc-900 dark:text-white">Personal Details</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  NAME
+                </p>
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Hasan Paujan</p>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  LOCATION
+                </p>
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Garut, Jawa Barat, Indonesia</p>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  IDENTITY / HANDLE
+                </p>
+                <p class="text-sm font-semibold font-mono text-zinc-900 dark:text-zinc-100">zvim</p>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  EDUCATION
+                </p>
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">SMKN 11 Garut (Kelas X · TJKT)</p>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  EMAIL
+                </p>
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">hasan.jpn23@gmail.com</p>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
+                  LANGUAGES
+                </p>
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Indonesia, Sunda, English</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. MARQUEE DIVIDER STRIP (Teks berjalan besar)
+         ========================================================================== -->
+    <div class="py-10 border-y border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden select-none bg-white/40 dark:bg-zinc-900/20">
+      <div class="flex w-max animate-marquee">
+        <div class="flex items-center gap-8 px-4 text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-200 dark:text-zinc-800/90 whitespace-nowrap">
+          <span>I'm Hasan</span>
+          <span>•</span>
+          <span>Hello I'm zvim</span>
+          <span>•</span>
+          <span>Computer & Network Engineering</span>
+          <span>•</span>
+          <span>Physics & Tech Explorer</span>
+          <span>•</span>
+        </div>
+        <div class="flex items-center gap-8 px-4 text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-200 dark:text-zinc-800/90 whitespace-nowrap" aria-hidden="true">
+          <span>I'm Hasan</span>
+          <span>•</span>
+          <span>Hello I'm zvim</span>
+          <span>•</span>
+          <span>Computer & Network Engineering</span>
+          <span>•</span>
+          <span>Physics & Tech Explorer</span>
+          <span>•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         5. EDUCATION & LEARNING PATH (Center Vertical Timeline)
+         ========================================================================== -->
+    <section id="education" class="py-20 sm:py-28 px-4 sm:px-6 max-w-5xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 dark:text-zinc-500 mb-2">
+          LEARNING PATH
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          Education & Journey
+        </h2>
+      </div>
+
+      <!-- Vertical Center Line Timeline -->
+      <div class="relative">
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1.5px] bg-zinc-200 dark:bg-zinc-800 md:-translate-x-1/2"></div>
+
+        <div class="space-y-12">
+          <!-- Timeline Item 1 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal">
+            <div class="hidden md:block md:w-[45%]"></div>
+            <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-white dark:bg-zinc-950 border-[3px] border-zinc-900 dark:border-white -translate-x-1/2 mt-6 md:mt-0 z-10"></div>
+            <div class="ml-10 md:ml-0 md:w-[45%] bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-6 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <span class="font-mono text-xs text-zinc-400 dark:text-zinc-500">2026 — Sekarang</span>
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white mt-1">
+                Teknik Jaringan Komputer & Telekomunikasi
+              </h3>
+              <p class="font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mt-1 mb-3">
+                SMKN 11 GARUT · KELAS X
+              </p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+                Mempelajari dasar-dasar arsitektur perangkat keras komputer, instalasi dan konfigurasi sistem operasi, topologi jaringan lokal, serta pengenalan logika pemrograman.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">COMPUTER SYSTEMS</span>
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">NETWORKING</span>
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">OS CONFIG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal">
+            <div class="ml-10 md:ml-0 md:w-[45%] bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-6 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <span class="font-mono text-xs text-zinc-400 dark:text-zinc-500">Eksplorasi Mandiri</span>
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white mt-1">
+                Pemrograman, Keamanan Siber & Fisika
+              </h3>
+              <p class="font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mt-1 mb-3">
+                SELF-TAUGHT & CREATIVE DESIGN
+              </p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+                Mengasah kemampuan dasar HTML, CSS, dan Python, memahami prinsip keamanan digital, serta melatih kreativitas melalui desain grafis, poster, dan logo.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">HTML & CSS</span>
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">PYTHON</span>
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">CYBERSECURITY</span>
+                <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 font-mono text-[10px] font-medium text-zinc-600 dark:text-zinc-300">PHYSICS</span>
+              </div>
+            </div>
+            <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-white dark:bg-zinc-950 border-[3px] border-zinc-900 dark:border-white -translate-x-1/2 mt-6 md:mt-0 z-10"></div>
+            <div class="hidden md:block md:w-[45%]"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. MY TECH STACK & SKILLS
+         ========================================================================== -->
+    <section id="skills" class="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 dark:text-zinc-500 mb-2">
+          SKILLS & TOOLS
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          My Tech Stack & Interests
+        </h2>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center reveal">
+          <div class="lg:col-span-4 space-y-2">
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">
+              Programming & Core Systems
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Bahasa pemrograman dan fondasi sistem komputer yang sedang saya pelajari dan kembangkan.
+            </p>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">HTML5</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Dasar</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">CSS3</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Dasar</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 font-mono text-xs font-bold">
+                Py
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Python</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Pemula</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Sistem OS</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Eksplorasi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center reveal">
+          <div class="lg:col-span-4 space-y-2">
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">
+              Networking, Design & Tools
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Bidang jaringan komputer, keamanan siber, desain visual, serta perangkat kerja harian saya.
+            </p>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Jaringan</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Dasar TJKT</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Cyber Security</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Pemula</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 font-mono text-xs font-bold">
+                VS
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">VS Code</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Code Editor</p>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 hover:-translate-y-1 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-zinc-900 dark:text-white">Canva & Desain</p>
+                <p class="text-[10px] font-mono text-zinc-400 mt-0.5">Poster & Logo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. SELECTED WORKS / PROJECTS
+         ========================================================================== -->
+    <section id="projects" class="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 dark:text-zinc-500 mb-2">
+          PORTFOLIO
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          Selected Works
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7 reveal">
+        <!-- Card 1 -->
+        <article class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-3xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+          <div>
+            <div class="aspect-[16/10] bg-zinc-900 dark:bg-zinc-950 p-5 flex flex-col justify-between relative overflow-hidden">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+              </div>
+              <div class="font-mono text-xs text-zinc-400 space-y-1">
+                <p class="text-zinc-500">// lab_jaringan_tjkt</p>
+                <p class="text-white font-semibold">Topologi & Subnetting</p>
+                <p class="text-[11px] text-zinc-400">Status: Dalam Pengembangan</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                Lab Jaringan Komputer
+              </h3>
+              <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Eksperimen konfigurasi jaringan lokal, pengalamatan IP, dan simulasi perangkat keras selama pembelajaran TJKT di SMKN 11 Garut.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button type="button" onclick="openProjectModal('Lab Jaringan Komputer', 'Saat ini dokumentasi proyek lab jaringan komputer masih dalam tahap penyusunan seiring berjalannya praktik kelas X TJKT. Nantikan pembaruan berikutnya!')" class="w-full py-3 rounded-xl border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-800 dark:text-zinc-200 hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-zinc-900 transition-colors">
+              VIEW DETAILS
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-3xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+          <div>
+            <div class="aspect-[16/10] bg-zinc-900 dark:bg-zinc-950 p-5 flex flex-col justify-between relative overflow-hidden">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+              </div>
+              <div class="font-mono text-xs text-zinc-400 space-y-1">
+                <p class="text-zinc-500">// python_dan_web</p>
+                <p class="text-white font-semibold">Eksperimen Kode Pemula</p>
+                <p class="text-[11px] text-zinc-400">Status: Dalam Pengembangan</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                Latihan Web & Python
+              </h3>
+              <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Kumpulan skrip Python sederhana dan latihan antarmuka web menggunakan HTML & CSS yang sedang saya bangun dari nol.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button type="button" onclick="openProjectModal('Latihan Web & Python', 'Repositori kode HTML, CSS, dan skrip Python sedang dalam tahap pengembangan dan akan dipublikasikan setelah siap.')" class="w-full py-3 rounded-xl border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-800 dark:text-zinc-200 hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-zinc-900 transition-colors">
+              VIEW DETAILS
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-3xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+          <div>
+            <div class="aspect-[16/10] bg-zinc-900 dark:bg-zinc-950 p-5 flex flex-col justify-between relative overflow-hidden">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+              </div>
+              <div class="font-mono text-xs text-zinc-400 space-y-1">
+                <p class="text-zinc-500">// visual_studio</p>
+                <p class="text-white font-semibold">Poster, Logo & Presentasi</p>
+                <p class="text-[11px] text-zinc-400">Status: Dalam Pengembangan</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                Karya Desain Grafis
+              </h3>
+              <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Eksplorasi desain poster, pembuatan logo minimalis, dan tata letak presentasi kreatif yang dikerjakan menggunakan Canva.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button type="button" onclick="openProjectModal('Karya Desain Grafis', 'Setiap perjalanan besar dimulai dari rasa ingin tahu. Galeri karya desain grafis saya sedang dikurasi dan akan segera hadir di sini.')" class="w-full py-3 rounded-xl border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-800 dark:text-zinc-200 hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-zinc-900 transition-colors">
+              VIEW DETAILS
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. CONTACT ME SECTION
+         ========================================================================== -->
+    <section id="contact" class="py-20 sm:py-28 px-4 sm:px-6 max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 dark:text-zinc-500 mb-2">
+          GET IN TOUCH
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          Contact Me
+        </h2>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-sm reveal">
+        <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-6">
+          Send an Email directly.
+        </h3>
+
+        <form id="contact-form" class="space-y-5" novalidate>
+          <div>
+            <label for="sender-name" class="block font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mb-2">
+              NAME
+            </label>
+            <input type="text" id="sender-name" required placeholder="Nama Anda" class="w-full px-4 py-3 rounded-xl bg-[#FAFAFA] dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-white transition-colors" />
+          </div>
+
+          <div>
+            <label for="sender-email" class="block font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mb-2">
+              EMAIL
+            </label>
+            <input type="email" id="sender-email" required placeholder="nama@example.com" class="w-full px-4 py-3 rounded-xl bg-[#FAFAFA] dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-white transition-colors" />
+          </div>
+
+          <div>
+            <label for="sender-message" class="block font-mono text-[11px] font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mb-2">
+              MESSAGE
+            </label>
+            <textarea id="sender-message" rows="4" required placeholder="Tulis pesan Anda di sini..." class="w-full px-4 py-3 rounded-xl bg-[#FAFAFA] dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-white transition-colors resize-y"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-[#18181B] dark:bg-white text-white dark:text-zinc-900 font-mono text-xs font-semibold tracking-widest uppercase hover:opacity-90 active:scale-[0.99] transition-all">
+            SEND MESSAGE
+          </button>
+
+          <p id="form-status" class="hidden text-center text-xs text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 py-2.5 px-4 rounded-xl"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       9. FOOTER
+       ========================================================================== -->
+  <footer class="border-t border-zinc-200/80 dark:border-zinc-800/80 py-8 px-4 text-center text-xs text-zinc-500 dark:text-zinc-400">
+    <p>&copy; <span id="year">2026</span> <strong class="font-semibold text-zinc-900 dark:text-white">Hasan Paujan (zvim)</strong> · SMKN 11 Garut.</p>
+  </footer>
+
+  <!-- ==========================================================================
+       10. FLOATING AI ASSISTANT WIDGET
+       ========================================================================== -->
+  <button id="ai-chat-trigger" type="button" aria-label="Buka Asisten AI zvim" class="fixed bottom-5 right-5 z-50 w-13 h-13 p-3.5 rounded-full bg-[#18181B] dark:bg-white text-white dark:text-zinc-900 shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+    <span class="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-zinc-700 dark:bg-zinc-200 text-white dark:text-zinc-900 font-mono text-[9px] font-bold">
+      AI
+    </span>
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <div id="ai-chat-modal" class="hidden fixed inset-0 sm:inset-auto sm:bottom-22 sm:right-5 z-50 sm:w-[390px] sm:h-[540px] bg-white dark:bg-zinc-900 sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-2xl flex flex-col overflow-hidden">
+    <div class="px-5 py-4 border-b border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-zinc-900">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center font-mono text-xs font-bold text-zinc-900 dark:text-white">
+          AI
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-zinc-900 dark:text-white">zvim Assistant</h4>
+          <p class="text-[11px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Online
+          </p>
+        </div>
+      </div>
+      <button id="ai-chat-close" type="button" aria-label="Tutup Chat" class="w-8 h-8 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#FAFAFA] dark:bg-zinc-950/60">
+      <div class="max-w-[85%] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-2xl rounded-tl-sm p-3.5 shadow-sm">
+        <p class="text-xs sm:text-[13px] text-zinc-700 dark:text-zinc-200 leading-relaxed">
+          Halo! Saya adalah asisten AI Hasan Paujan (zvim). Ada yang bisa saya bantu terkait profil, sekolah di SMKN 11 Garut, keahlian, atau cara menghubungi Hasan?
+        </p>
+        <span class="block font-mono text-[10px] text-zinc-400 mt-1.5">Baru saja</span>
+      </div>
+    </div>
+
+    <form id="ai-chat-form" class="p-3.5 border-t border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-center gap-2">
+      <input type="text" id="ai-chat-input" placeholder="Tanyakan sesuatu tentang Hasan..." autocomplete="off" class="flex-1 px-4 py-2.5 rounded-xl bg-[#FAFAFA] dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs sm:text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-white" />
+      <button type="submit" aria-label="Kirim" class="w-10 h-10 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 id="modal-title" class="text-lg font-bold text-zinc-900 dark:text-white">Detail Proyek</h3>
+        <button type="button" onclick="closeProjectModal()" class="w-8 h-8 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <p id="modal-desc" class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed"></p>
+      <button type="button" onclick="closeProjectModal()" class="w-full py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-semibold">
+        Tutup
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Preloader Fade Out
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => preloader.remove(), 500);
+      }, 1500);
+    });
+
+    // 2. Typing Effect on Hero Subtitle
+    const roles = [
+      "TJKT Student at SMKN 11 Garut",
+      "Computer & Network Enthusiast",
+      "Beginner Web & Python Coder",
+      "Physics & Tech Explorer"
+    ];
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typingEl = document.getElementById('typing-role');
+
+    function typeLoop() {
+      const currentText = roles[roleIdx];
+      if (!isDeleting) {
+        typingEl.textContent = currentText.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === currentText.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, 1800);
+          return;
+        }
+      } else {
+        typingEl.textContent = currentText.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+        }
+      }
+      setTimeout(typeLoop, isDeleting ? 45 : 85);
+    }
+    typeLoop();
+
+    // 3. Dark / Light Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    const htmlEl = document.documentElement;
+
+    function setTheme(dark) {
+      if (dark) {
+        htmlEl.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      } else {
+        htmlEl.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      }
+    }
+
+    const savedTheme = localStorage.getItem('zvim-theme');
+    if (savedTheme === 'dark') setTheme(true);
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = !htmlEl.classList.contains('dark');
+      setTheme(isDark);
+      localStorage.setItem('zvim-theme', isDark ? 'dark' : 'light');
+    });
+
+    // 4. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 5. Scroll Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 6. Project Detail Modal
+    function openProjectModal(title, desc) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-desc').textContent = desc;
+      document.getElementById('project-modal').classList.remove('hidden');
+    }
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+    }
+
+    // 7. Direct Email Form (Mailto)
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('sender-name').value.trim();
+      const email = document.getElementById('sender-email').value.trim();
+      const msg = document.getElementById('sender-message').value.trim();
+      const statusEl = document.getElementById('form-status');
+
+      if (!name || !email || !msg) {
+        statusEl.textContent = "Harap lengkapi nama, email, dan pesan terlebih dahulu.";
+        statusEl.classList.remove('hidden');
+        return;
+      }
+      statusEl.textContent = "Membuka aplikasi email untuk mengirim pesan ke Hasan...";
+      statusEl.classList.remove('hidden');
+      window.location.href = `mailto:hasan.jpn23@gmail.com?subject=${encodeURIComponent('Pesan Portofolio dari ' + name)}&body=${encodeURIComponent('Nama: ' + name + '\nEmail: ' + email + '\n\n' + msg)}`;
+    });
+
+    // 8. Interactive AI Assistant Widget (zvim Assistant)
+    const chatTrigger = document.getElementById('ai-chat-trigger');
+    const chatModal = document.getElementById('ai-chat-modal');
+    const chatClose = document.getElementById('ai-chat-close');
+    const chatForm = document.getElementById('ai-chat-form');
+    const chatInput = document.getElementById('ai-chat-input');
+    const chatMessages = document.getElementById('ai-chat-messages');
+
+    chatTrigger.addEventListener('click', () => {
+      chatModal.classList.toggle('hidden');
+      if (!chatModal.classList.contains('hidden')) chatInput.focus();
+    });
+    chatClose.addEventListener('click', () => chatModal.classList.add('hidden'));
+
+    function getCurrentTime() {
+      const now = new Date();
+      return now.getHours().toString().padStart(2, '0') + '.' + now.getMinutes().toString().padStart(2, '0');
+    }
+
+    function appendMessage(text, isUser = false) {
+      const wrapper = document.createElement('div');
+      wrapper.className = isUser
+        ? "ml-auto max-w-[82%] bg-[#18181B] dark:bg-white text-white dark:text-zinc-900 rounded-2xl rounded-tr-sm p-3.5 shadow-sm"
+        : "max-w-[85%] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-2xl rounded-tl-sm p-3.5 shadow-sm";
+
+      const p = document.createElement('p');
+      p.className = "text-xs sm:text-[13px] leading-relaxed";
+      p.textContent = text;
+
+      const time = document.createElement('span');
+      time.className = isUser
+        ? "block font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mt-1.5 text-right"
+        : "block font-mono text-[10px] text-zinc-400 mt-1.5";
+      time.textContent = getCurrentTime();
+
+      wrapper.appendChild(p);
+      wrapper.appendChild(time);
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function getBotReply(query) {
+      const q = query.toLowerCase();
+      if (q.includes('siapa') || q.includes('profil') || q.includes('hasan') || q.includes('zvim')) {
+        return "Saya zvim Assistant, asisten AI pribadi untuk Hasan Paujan (zvim). Hasan adalah siswa kelas X jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT) di SMKN 11 Garut yang gemar mengeksplorasi teknologi dan fisika.";
+      }
+      if (q.includes('sekolah') || q.includes('pendidikan') || q.includes('jurusan') || q.includes('smk')) {
+        return "Hasan saat ini bersekolah di SMKN 11 Garut, kelas X jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT).";
+      }
+      if (q.includes('skill') || q.includes('keahlian') || q.includes('bisa') || q.includes('bahasa')) {
+        return "Hasan sedang mengembangkan kemampuan di bidang Sistem Komputer, Sistem Operasi, Jaringan Komputer, Dasar Keamanan Siber, pemrograman (HTML, CSS, Python), serta desain grafis menggunakan Canva.";
+      }
+      if (q.includes('kontak') || q.includes('email') || q.includes('ig') || q.includes('instagram') || q.includes('tiktok')) {
+        return "Kamu bisa menghubungi Hasan lewat email di hasan.jpn23@gmail.com, Instagram @its.san23, atau TikTok @itmysans_.";
+      }
+      if (q.includes('proyek') || q.includes('project') || q.includes('karya')) {
+        return "Saat ini proyek-proyek Hasan masih dalam tahap pengembangan seiring proses belajar di kelas X TJKT. Nantikan karya terbarunya segera!";
+      }
+      return "Terima kasih sudah bertanya! Kamu bisa menanyakan tentang siapa Hasan (zvim), sekolahnya di SMKN 11 Garut, keahlian teknologi & pemrograman, atau kontak sosial medianya.";
+    }
+
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      appendMessage(text, true);
+      chatInput.value = '';
+
+      const typingBubble = document.createElement('div');
+      typingBubble.className = "w-16 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-2xl rounded-tl-sm p-3.5 shadow-sm";
+      typingBubble.innerHTML = '<div class="dot-flashing"><span></span><span></span><span></span></div>';
+      chatMessages.appendChild(typingBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      setTimeout(() => {
+        typingBubble.remove();
+        appendMessage(getBotReply(text), false);
+      }, 650);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
